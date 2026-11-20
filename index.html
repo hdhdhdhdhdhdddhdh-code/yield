@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#101b32" />
+  <meta name="description" content="أثر — لوحة شخصية لتنظيم المحاضرات والأهداف والعادات والمهام والمال ومتابعة أثرها السنوي." />
+  <title>أثر | يومك يصنع سنتك</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="auth" class="auth-view">
+    <div class="auth-art" aria-hidden="true"><div class="orb orb-a"></div><div class="orb orb-b"></div><span class="auth-decor">✦</span></div>
+    <section class="auth-card">
+      <div class="logo-large"><span class="logo-icon">✳</span><span>أثــر</span></div>
+      <div class="eyebrow">مساحتك الشخصية للإنجاز</div>
+      <h1 id="greeting">مرحباً بعودتك</h1>
+      <p id="quote" class="quote"></p>
+      <form id="authForm" class="stack">
+        <label for="password">كلمة المرور</label>
+        <input id="password" type="password" autocomplete="current-password" minlength="4" required placeholder="أدخل كلمة المرور" />
+        <div id="confirmWrap" hidden><label for="confirmPassword">تأكيد كلمة المرور لأول مرة</label><input id="confirmPassword" type="password" autocomplete="new-password" minlength="4" placeholder="أعد إدخال كلمة المرور" /></div>
+        <button class="btn primary block" id="authButton" type="submit">دخول إلى يومي <span>←</span></button>
+      </form>
+      <p id="authHelp" class="small-muted"></p>
+    </section>
+  </div>
+
+  <div id="app" class="shell" hidden>
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-icon">✳</div><div><strong>أثــر</strong><small>يومك يصنع سنتك</small></div></div>
+      <div class="nav-title">مساحة العمل</div>
+      <nav id="nav" class="nav" aria-label="التنقل الرئيسي">
+        <button type="button" data-view="dashboard" class="nav-item active"><span>◫</span> لوحة اليوم</button>
+        <button type="button" data-view="university" class="nav-item"><span>▤</span> باشاك شهير</button>
+        <button type="button" data-view="goals" class="nav-item"><span>◎</span> الأهداف اليومية</button>
+        <button type="button" data-view="habits" class="nav-item"><span>♧</span> العادات اليومية</button>
+        <button type="button" data-view="tasks" class="nav-item"><span>☷</span> مهام عامة</button>
+        <button type="button" data-view="shopping" class="nav-item"><span>▣</span> قائمة التسوق</button>
+        <button type="button" data-view="finance" class="nav-item"><span>◈</span> الحركة المالية</button>
+        <button type="button" data-view="annual" class="nav-item"><span>▥</span> الأثر السنوي</button>
+        <button type="button" data-view="settings" class="nav-item"><span>⚙</span> الإعدادات والنسخ</button>
+      </nav>
+      <div class="side-bottom"><div class="side-tip">كل ربع ساعة فرصة جديدة لصنع فرق.</div><button id="logout" type="button" class="btn ghost">↪ قفل الصفحة</button></div>
+    </aside>
+    <div class="main-area">
+      <header class="topbar"><div class="topbar-title"><button type="button" id="menuToggle" class="icon-btn mobile-menu" aria-label="فتح القائمة">☰</button><div><span class="eyebrow">مساحتك الهادئة للتركيز</span><h1 id="pageTitle">لوحة اليوم</h1></div></div><div class="topbar-actions"><div id="liveDate" class="date-chip"></div><button id="notifyBtn" class="icon-btn" type="button" title="تفعيل الإشعارات">♢</button><button id="soundBtn" class="icon-btn" type="button" title="تشغيل / إيقاف الأصوات">♫</button></div></header>
+      <main id="content" class="content"></main>
+      <footer class="footer">أثر — إنجازات صغيرة، أثر يتراكم على مدار العام · جميع بياناتك محفوظة في هذا المتصفح</footer>
+    </div>
+    <div id="progressWidget" class="progress-widget" title="نسبة إنجاز اليوم" role="status"></div>
+  </div>
+  <div id="modal" class="modal-backdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-head"><h2 id="modalTitle"></h2><button type="button" class="icon-btn" id="modalClose" aria-label="إغلاق">×</button></div><div id="modalBody"></div></div></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
